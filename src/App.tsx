@@ -31,23 +31,26 @@ const App: React.FC = () => {
   }, [people]);
 
   return (
-    <>
-      <input
-        type="text"
-        placeholder="Person name..."
-        value={inputvalue}
-        maxLength={20}
-        onChange={e => {
-          findSuggestedPeople(e.target.value);
-          setInputValue(e.target.value);
-        }}
-      ></input>
-      <div>
+    <div className="container">
+      <div className="inputContainer">
+        <input
+          type="text"
+          placeholder="Person name..."
+          value={inputvalue}
+          maxLength={20}
+          onChange={e => {
+            findSuggestedPeople(e.target.value);
+            setInputValue(e.target.value);
+          }}
+        ></input>
+      </div>
+      <div className="verticalDivider"></div>
+      <div className="namesContainer">
         {suggestedSearchResult
           ? suggestedSearchResult.map(p => <h1>{p.name}</h1>)
           : null}
       </div>
-    </>
+    </div>
   );
 };
 
